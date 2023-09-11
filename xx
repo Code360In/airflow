@@ -1,0 +1,9 @@
+from pathlib import Path
+from llama_index import download_loader ,GPTVectorStoreIndex
+
+PDFReader = download_loader("PDFReader")
+
+loader = PDFReader()
+documents = loader.load_data(file=Path('./llmpart1.pdf'))
+index = GPTVectorStoreIndex.from_documents(documents)
+index.query('HOUSEKEEPING')
